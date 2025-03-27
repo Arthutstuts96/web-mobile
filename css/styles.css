@@ -1,0 +1,12 @@
+.header{
+    background-color: brown;
+}
+#area-mensagem{
+    border: 1px solid green;
+    padding: 5px;
+}
+.destaque{
+    text-transform: uppercase;
+    font-size: 24px;
+    color: red;
+}

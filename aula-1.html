@@ -2,9 +2,16 @@
     <head>
         <meta charset="UTF-8">
         <title>Título da página</title>
+        <link rel="stylesheet" href="./css/styles.css" />
+
+        <script type="text/javascript">
+            function soma(a, b){
+                alert(a + b);
+            }
+        </script>
     </head>
     <body>
-        <h1>Primeiro cabeçalho</h1>
+        <h1 class="header">Primeiro cabeçalho</h1>
         <p>Primeiro parágrafo</p>
         <img src="img/banana.jpeg" alt="Primeira imagem" width="80" height="80"/>
         <a href="https://uft.edu.br" target="_blank">Primeiro link</a>
@@ -43,5 +50,62 @@
                 </tr>
             </tbody>
         </table>
+
+        <form action="/cadastro/" method="POST">
+            <label for="login">Login</label>
+            <input type="text" name="login" id="login" />
+
+            <label for="senha">Senha</label>
+            <input type="password" name="senha" id="senha" />
+
+            <label for="numero">Idade</label>
+            <input type="number" name="numero" id="numero" min="0" max="100" step="1"/>
+            
+            <label for="sexo">Sexo</label>
+            <input type="radio" name="sexo" value="1" id="masc" >Masculino
+            <input type="radio" name="sexo" value="2" id="fem" >Feminino
+
+            <input type="checkbox" name="veiculo1" id="v1">Eu tenho uma bike
+            <input type="checkbox" name="veiculo2" id="v2">Eu tenho uma moto
+            
+            <label for="curso">Curso</label>
+            <select name="curso">
+                <option value="1">Ciências da Computação</option>
+                <option value="2">Direito</option>
+                <option value="3">Engenharia Elétrica</option>
+                <option value="4">Medicina</option>
+            </select>
+
+            Mensagem: <textarea name="mensagem"></textarea>
+            Data de nascimento: <input type="date" name="data_nascimento" min="2000-01-01"/>
+
+            Auto complete: <input list="queijos">
+            <datalist id="queijos">
+                <option>Camembert</option>
+                <option>Cheddar</option>
+                <option>Chèvre</option>
+                <option>Cotija</option>
+                <option>Emmental</option>
+                <option>Feta</option>
+                <option>Gouda</option>
+                <option>Manchego</option>
+                <option>Monterey Jack</option>
+                <option>Mozzarella</option>
+                <option>Parmigiano Reggiano</option>
+                <option>Roquefort</option>
+                <option>Taleggio</option>
+            </datalist>
+
+            <input type="hidden" name="country" value="Brasil">
+            <input type="reset" name="limpar" value="Limpar">
+            <input type="submit" name="enviar" value="enviar">
+            
+            <button type="button" onclick="alert('Hello world')">Botão 1</button>
+            <button type="button" onclick="soma(5, 10);">Botão 2</button>
+
+            <div id="area-mensagem">Escopo de bloco</div>
+            Elements <span class="destaque">Escopo de linha</span>
+            Linha <span class="destaque">Textos</span>
+        </form>
     </body>
 </html>
