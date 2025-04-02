@@ -9,52 +9,89 @@
     <script src="./js/bootstrap.js" defer></script>
     <script src="./js/funcoes.js" defer></script>
 </head>
-<body>
+<body class="bg-primary">
     <nav class="navbar bg-body-tertiary">
-        <div class="container-fluid">
-          <a class="navbar-brand">Navbar</a>
-          <form class="d-flex" role="search">
-            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success" type="submit">Search</button>
-          </form>
-        </div>
-      </nav>
+      <div class="container-fluid">
+        <a class="navbar-brand bg-warning p-1">ArthurLima</a>
+        <form class="d-flex" role="search">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn bg-warning btn-outline-success" type="submit">Buscar</button>
+        </form>
+      </div>
+    </nav>    
     <div class="d-flex">
         <div class="alert alert-primary" role="alert">
-            A simple primary alert—check it out!
+            Gravuras magníficas!
           </div>
           <div class="alert alert-secondary" role="alert">
-            A simple secondary alert—check it out!
+            Imagens interessantes!
           </div>
           <div class="alert alert-success" role="alert">
-            A simple success alert—check it out!
+            Fotos incríveis!
           </div>
           <div class="alert alert-danger" role="alert">
-            A simple danger alert—check it out!
+            Muita subjetividade!
           </div>
           <div class="alert alert-warning" role="alert">
-            A simple warning alert—check it out!
+            Desenho espetacular!
         </div>
     </div>
     <!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-    Launch demo modal
-  </button>
+  <div class="d-flex justify-content-center align-items-center">
+    <button type="button" class="btn bg-warning btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+      Quem somos?
+    </button>
+  </div>
+
+  <div class="container p-5 gap-3">
+    <div class="row">
+    <div class="card col-6 p-1" style="width: 18rem;">
+      <img src="./img/natureza.jpeg" class="card-img-top" alt="...">
+      <div class="card-body">
+        <p class="card-text">Foto da natureza que eu queria estar</p>
+      </div>
+    </div>
+    <div class="card col-6 p-1" style="width: 18rem;">
+      <img src="./img/dados.jpeg" class="card-img-top" alt="...">
+      <div class="card-body">
+        <p class="card-text">Foto de dados para jogar jogos</p>
+      </div>
+    </div>
+    <div class="card col-6 p-1" style="width: 18rem;">
+      <img src="./img/banana.jpeg" class="card-img-top" alt="...">
+      <div class="card-body">
+        <p class="card-text">Foto de uma banana</p>
+      </div>
+    </div>
+    <div class="card col-6 p-1" style="width: 18rem;">
+      <img src="./img/lego.jpeg" class="card-img-top" alt="...">
+      <div class="card-body">
+        <p class="card-text">Foto de um brinquedo de Lego</p>
+      </div>
+    </div>
+    <div class="card col-6 p-1" style="width: 18rem;">
+      <img src="./img/natureza.jpeg" class="card-img-top" alt="...">
+      <div class="card-body">
+        <p class="card-text">Foto da natureza que eu queria estar</p>
+      </div>
+    </div>
+  </div>
+  </div>
   
   <!-- Modal -->
   <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Bem vindo!</h1>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          ...
+          Aqui é a galeria de fotos do Arthur. Contém vários cards com imagens que eu gosto e resolvi compartilhar, espero que gostem!
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Save changes</button>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+          <button type="button" class="btn btn-primary">Explorar</button>
         </div>
       </div>
     </div>
