@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.views.generic import ListView
 
-from sistema.veiculo.models import Veiculo
+from veiculo.models import Veiculo
 
 class ListarVeiculo(ListView):
     model = Veiculo
