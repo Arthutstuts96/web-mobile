@@ -1,11 +1,34 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Veículos</title>
-</head>
-<body>
-    <h1>{{veiculos|length}} veículo(s)</h1>
-</body>
-</html>
+<!-- Início do arquivo -->
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+    {% include 'partials/_navbar.html' %}
+    <main class="bg-primary p-3 bg-gradient h-75">
+        <h1 class="text-white py-3">No total há {{veiculos|length}} veículo(s) cadastrados</h1>
+        <div class="position-relative d-flex flex-wrap items-center gap-3">
+            {% for veiculo in veiculos %}
+            <div class="card shadow border" style="width: 18rem;">
+                <div class="card-body">
+                    <h5><strong>{{veiculo.modelo}}</strong></h5>
+                    <h6 class="card-subtitle mb-2 text-muted">Pelo(a) {{veiculo.get_marca_display}}, de {{veiculo.ano}}</h6>
+                    <p class="card-text">Cor: {{veiculo.get_cor_display}}</p>
+                    <p class="card-text">Combustível: {{veiculo.get_combustivel_display}}</p>
+                    <a href="#" class="card-link">Ver informações detalhadas</a>
+                    <div class="position-absolute d-flex gap-2 start-2 bottom-2">
+                        <button class="rounded text-white border-0 bg-warning">
+                            Editar
+                        </button>
+                        <button class="rounded text-white border-0 bg-danger">
+                            Deletar
+                        </button>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+        </div>
+    </main>
+    {% include 'partials/_footer.html' %}
+
+<!-- Fim do arquivo -->
+{% endblock %}

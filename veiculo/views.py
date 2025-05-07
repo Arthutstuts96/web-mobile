@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.views import View
 from django.views.generic import ListView
 
 from veiculo.models import Veiculo
@@ -7,3 +8,10 @@ class ListarVeiculo(ListView):
     model = Veiculo
     context_object_name = 'veiculos'
     template_name = 'veiculo/listar.html'
+
+class CadastrarVeiculo(View):
+    def get(request):
+        return render(request, 'veiculo/cadastrar.html')
+
+    def post(request):
+        return render()
