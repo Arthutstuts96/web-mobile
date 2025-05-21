@@ -1,0 +1,30 @@
+<!-- Início do arquivo -->
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+    {% include 'partials/_navbar.html' %}
+    <form action="/veiculo/novo/" method="POST" enctype="multipart/form-data" class="d-flex justify-content-center align-items-center">
+        {% csrf_token %}
+        <div class=" position-relative d-flex flex-column gap-3 m-5 p-3 bg-primary rounded shadow" style="min-width: 400px;">
+            <h1 class="text-white">Preencha o formulário:</h1>
+            <label for="marca" class="text-white">Marca do veículo</label>
+            {{ form.marca }}
+            <label class="text-white">Modelo do veículo</label>
+            {{ form.modelo }}   
+            <label class="text-white">Ano</label>   
+            {{ form.ano }}
+            <label class="text-white">Cor</label>
+            {{ form.cor }}
+            <label class="text-white">Combustível</label>
+            {{ form.combustivel }}
+            <label class="text-white">Foto</label>
+            {{ form.foto }}
+            <button type="submit" class="border-0 bg-warning p-3 text-white rounded shadow" style=":hover{background-color: orange;} ">Salvar</button>
+        </div>
+    </form>
+    
+    {% include 'partials/_footer.html' %}
+
+<!-- Fim do arquivo -->
+{% endblock %}
