@@ -1,0 +1,102 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<style>
+    .hover-zoom {
+        transition: transform 0.3s ease-in-out;
+    }
+
+    .hover-zoom:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15); /* Bootstrap-like shadow */
+    }
+  .fade-in {
+    animation: fadeIn 0.6s ease-in-out;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .banner-img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-bottom: 4px solid #dee2e6;
+  }
+</style>
+
+<header class="bg-light px-3 py-2 border-bottom">
+  <div class="d-flex align-items-center justify-content-between flex-wrap">
+    <div class="d-flex align-items-center">
+      <button class="btn btn-outline-secondary d-lg-none me-2" type="button" data-bs-toggle="collapse" data-bs-target="#menuNav" aria-controls="menuNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon">☰</span>
+      </button>
+      <a href="#" class="fw-bold text-dark text-decoration-none fs-5">Veículos</a>
+    </div>
+    <div class="collapse d-lg-flex flex-grow-1 justify-content-end mt-2 mt-lg-0" id="menuNav">
+      <ul class="list-unstyled d-flex flex-column flex-lg-row mb-0 gap-2 gap-lg-3 align-items-lg-center">
+        <li><a class="text-decoration-none text-dark" href="/">Home</a></li>
+        <li><a class="text-decoration-none text-danger" href="/logout">Sair</a></li>
+      </ul>
+    </div>
+  </div>
+</header>
+
+<div>
+    <img src="https://cdn.pixabay.com/photo/2017/03/27/14/56/audi-2179220_1280.jpg" alt="Banner carro" class="banner-img">
+</div>
+<div class="text-center bg-primary my-3 py-3 text-white">
+    <h1>Anúncios de carros para você!</h1>
+    <p>Veja nosso catálogo de carros seminovos e encontre o que se adapta perfeitamente ao seu estilo</p>
+</div>
+<div class="container py-5">
+    <div class="row g-4">
+      <!-- Cards de anúncios -->
+      <div class="col-md-8">
+        <div class="row g-4">
+          {% for anuncio in anuncios %}
+          <div class="col-12 fade-in hover-zoom">
+            <div class="card h-100 shadow-sm border rounded p-3">
+              <div class="row g-3 align-items-center">
+                <div class="col-md-4">
+                  <img src="{{ anuncio.veiculo.foto.url }}" alt="Foto do veículo" class="img-fluid rounded">
+                </div>
+                <div class="col-md-8">
+                  <div class="card-body d-flex flex-column justify-content-between h-100">
+                    <div>
+                      <h5 class="card-title fw-bold fs-4">{{ anuncio.veiculo.modelo }}</h5>
+                      <p class="card-text mb-1 fs-5">Preço: R$ {{ anuncio.preco }}</p>
+                      <p class="card-text mb-1 fs-6">Data: {{ anuncio.data }}</p>
+                      <p class="card-text mb-2">Avaliação: ⭐ {{ anuncio.avaliacao }}</p>
+                      <p>{{ anuncio.descricao }}</p>
+                    </div>
+                    <div class="d-flex justify-content-end gap-2 mt-4">
+                      <a href="{{ anuncio.id }}" class="btn btn-warning btn-lg text-white">Editar</a>
+                      <a href="deletar/{{ anuncio.id }}" class="btn btn-danger btn-lg">Deletar</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>       
+          {% endfor %}
+        </div>
+      </div>
+  
+      <!-- Seção de propaganda -->
+      <div class="col-md-4 d-none d-md-block">
+        <div class="card shadow-sm border rounded p-4 bg-danger text-center h-100 sticky-top" style="top: 100px;">
+          <h4 class="mb-3 text-white">🏆 Aposte na Sorte!</h4>
+          <img src="https://cdn.pixabay.com/photo/2014/04/02/10/47/lottery-304842_1280.png" alt="Loteria" class="img-fluid mb-3 rounded">
+          <p class="fs-6 text-white">Já pensou em mudar de vida com apenas um bilhete? Conheça nosso parceiro oficial de loterias online e concorra a milhões toda semana!</p>
+          <a href="https://www.exemplodeloteria.com" class="btn btn-success btn-lg mt-2" target="_blank">Apostar Agora</a>
+        </div>
+      </div>
+    </div>
+  </div>  
+
+{% include 'partials/_footer.html' %}
+{% endblock %}

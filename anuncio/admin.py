@@ -1,3 +1,9 @@
 from django.contrib import admin
 
-# Register your models here.
+from anuncio.models import Anuncio
+
+class AnuncioAdmin(admin.ModelAdmin):
+    list_display = ['veiculo', 'preco', 'estaAtivo', 'avaliacao']
+    # search_fields = ['modelo', ]
+
+admin.site.register(Anuncio, AnuncioAdmin)
