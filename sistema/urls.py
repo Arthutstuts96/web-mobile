@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django.urls import path, include
-from sistema.views import Login, Logout
+from sistema.views import Login, LoginAPI, Logout
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -8,4 +8,5 @@ urlpatterns = [
     path('logout/', Logout.as_view(), name='logout'),
     path('veiculo/', include('veiculo.urls'), name='veiculo'),
     path('anuncio/', include('anuncio.urls'), name='anuncio'),
+    path('autenticacao-api/', LoginAPI.as_view())
 ]
